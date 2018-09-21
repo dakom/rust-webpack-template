@@ -1,3 +1,6 @@
-import("../crate/pkg").then(module => {
-  module.run();
-});
+import Worker from 'worker-loader!./worker.js';
+
+const worker = new Worker();
+
+worker.postMessage({msg: "hello worker"});
+

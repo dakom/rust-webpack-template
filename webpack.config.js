@@ -8,7 +8,9 @@ module.exports = {
   entry: "./js/index.js",
   output: {
     path: dist,
-    filename: "bundle.js"
+    filename: "bundle.js",
+    //See: https://github.com/webpack/webpack/issues/6642#issuecomment-421857049
+    globalObject: `(typeof self !== 'undefined' ? self : this)`, 
   },
   devServer: {
     contentBase: dist,
